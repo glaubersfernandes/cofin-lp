@@ -154,7 +154,7 @@ export default function LandingPage() {
               {/* Efeito de brilho atrás do mockup */}
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-indigo-500/20 blur-3xl rounded-[3rem] transform rotate-6 scale-95" />
 
-              <div className="relative bg-slate-900 border border-slate-800 rounded-[2.5rem] p-3 shadow-2xl transform hover:rotate-0 hover:scale-[1.05] transition-all duration-500 ease-out rotate-2 scale-150">
+              <div className="relative bg-slate-900 border border-slate-800 rounded-[2.5rem] p-3 shadow-2xl transform hover:rotate-0 hover:scale-[1.05] transition-all duration-500 ease-out rotate-2 scale-100 md:scale-105">
                 {/* Barra superior do "navegador" fake */}
                 <div className="flex items-center gap-2 px-4 py-3 mb-2">
                   <div className="flex gap-1.5">
@@ -180,21 +180,23 @@ export default function LandingPage() {
                   </div>
 
                   {/* Elementos flutuantes fake para dar dinamismo */}
-                  <div className="absolute top-10 right-10 bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-lg">
-                    <div className="text-xs text-blue-400 mb-1">
+                  <div className="absolute top-4 right-4 md:top-10 md:right-10 z-20 bg-white/10 backdrop-blur-md p-3 md:p-4 rounded-xl border border-white/10 shadow-lg">
+                    <div className="text-[10px] md:text-xs text-blue-400 mb-1">
                       Rentabilidade Mês
                     </div>
-                    <div className="text-xl font-bold text-white">+ 3.45%</div>
+                    <div className="text-lg md:text-xl font-bold text-white">
+                      + 3.45%
+                    </div>
                   </div>
-                  <div className="absolute bottom-10 left-10 bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-lg flex items-center gap-3">
+                  <div className="absolute bottom-4 left-4 md:bottom-10 md:left-10 z-20 bg-white/10 backdrop-blur-md p-3 md:p-4 rounded-xl border border-white/10 shadow-lg flex items-center gap-3">
                     <div className="bg-green-500/20 p-2 rounded-lg">
-                      <Lock className="h-5 w-5 text-green-400" />
+                      <Lock className="h-4 w-4 md:h-5 md:w-5 text-green-400" />
                     </div>
                     <div>
-                      <div className="text-xs text-slate-300 mb-1">
+                      <div className="text-[10px] md:text-xs text-slate-300 mb-1">
                         Modo Casal
                       </div>
-                      <div className="text-sm font-bold text-white">
+                      <div className="text-xs md:text-sm font-bold text-white">
                         Ativado
                       </div>
                     </div>
