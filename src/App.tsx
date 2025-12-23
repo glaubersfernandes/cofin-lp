@@ -150,54 +150,52 @@ export default function LandingPage() {
             </div>
 
             {/* Mockup do Produto (O Hero Shot) */}
-            <div className="relative lg:ml-auto perspective-1000 my-20">
-              {" "}
-              {/* Adicionei my-20 para dar espaco vertical para o scale funcionar sem cortar */}
-              {/* Efeito de brilho */}
+            <div className="relative lg:ml-auto max-w-2xl perspective-1000">
+              {/* Efeito de brilho fundo */}
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-indigo-500/20 blur-3xl rounded-[3rem] transform rotate-6 scale-95" />
-              {/* AQUI: Voltei o scale para 125% em note e 150% em desktop grande */}
-              <div className="relative bg-slate-900 border border-slate-800 rounded-[2.5rem] p-3 shadow-2xl transform transition-all duration-500 ease-out rotate-2 scale-110 md:scale-125 lg:scale-150 hover:rotate-0 hover:scale-[1.55]">
-                {/* Barra superior */}
+
+              {/* MOCKUP: Reduzi scale para 100 (mobile) e 110 (desktop). 150 era demais. */}
+              <div className="relative bg-slate-900 border border-slate-800 rounded-[2rem] p-3 shadow-2xl transform transition-all duration-500 ease-out rotate-2 scale-100 md:scale-110 hover:rotate-0 hover:scale-[1.02]">
+                {/* Barra do navegador */}
                 <div className="flex items-center gap-2 px-4 py-3 mb-2">
                   <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
                   </div>
-                  <div className="text-xs text-slate-500 font-medium ml-4 bg-slate-800 px-3 py-1 rounded-md w-full text-center">
+                  <div className="text-[10px] md:text-xs text-slate-500 font-medium ml-3 bg-slate-800 px-3 py-1 rounded-md w-full text-center truncate">
                     app.cofin.finance
                   </div>
                 </div>
 
-                {/* AQUI ESTÁ A CORREÇÃO DE SOBREPOSIÇÃO: */}
-                {/* 1. min-h-[350px]: Garante altura mínima para os cards não colidirem */}
-                {/* 2. aspect-[16/10]: Mantém o formato wide */}
-                <div className="aspect-[16/10] min-h-[350px] md:min-h-[400px] rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 overflow-hidden relative group">
-                  {/* Conteúdo Central (Placeholder) */}
+                {/* ÁREA DO DASHBOARD */}
+                {/* min-h-[300px]: Garante altura para os cards não baterem, sem ser gigante */}
+                <div className="aspect-[16/10] min-h-[300px] rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 overflow-hidden relative group">
+                  {/* Placeholder da Imagem Central */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center text-slate-400">
-                    <TrendingUp className="h-16 w-16 mb-4 text-blue-500/50" />
+                    <TrendingUp className="h-12 w-12 mb-3 text-blue-500/50" />
                     <span className="text-sm font-medium opacity-50">
-                      Dashboard Preview
+                      Dashboard
                     </span>
                   </div>
 
                   {/* --- CARD 1 (Rentabilidade) --- */}
-                  {/* Usei top-6 ao invés de top-10 para ganhar espaço no meio */}
-                  <div className="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-lg">
-                    <div className="text-xs text-blue-400 mb-1">
+                  {/* Reduzi o padding para p-3 para o card ficar mais compacto */}
+                  <div className="absolute top-5 right-5 z-20 bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/10 shadow-lg">
+                    <div className="text-[10px] text-blue-400 mb-0.5">
                       Rentabilidade Mês
                     </div>
-                    <div className="text-xl font-bold text-white">+ 3.45%</div>
+                    <div className="text-lg font-bold text-white">+ 3.45%</div>
                   </div>
 
                   {/* --- CARD 2 (Modo Casal) --- */}
-                  {/* Usei bottom-6 ao invés de bottom-10 */}
-                  <div className="absolute bottom-6 left-6 z-20 bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-lg flex items-center gap-3">
-                    <div className="bg-green-500/20 p-2 rounded-lg">
-                      <Lock className="h-5 w-5 text-green-400" />
+                  {/* top-auto bottom-5: Garante que fique preso ao fundo */}
+                  <div className="absolute bottom-5 left-5 z-20 bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/10 shadow-lg flex items-center gap-3">
+                    <div className="bg-green-500/20 p-1.5 rounded-lg">
+                      <Lock className="h-4 w-4 text-green-400" />
                     </div>
                     <div>
-                      <div className="text-xs text-slate-300 mb-1">
+                      <div className="text-[10px] text-slate-300 mb-0.5">
                         Modo Casal
                       </div>
                       <div className="text-sm font-bold text-white">
