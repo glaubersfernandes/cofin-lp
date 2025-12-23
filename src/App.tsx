@@ -154,51 +154,53 @@ export default function LandingPage() {
               {/* Efeito de brilho fundo */}
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-indigo-500/20 blur-3xl rounded-[3rem] transform rotate-6 scale-95" />
 
-              {/* MOCKUP: Reduzi scale para 100 (mobile) e 110 (desktop). 150 era demais. */}
-              <div className="relative bg-slate-900 border border-slate-800 rounded-[2rem] p-3 shadow-2xl transform transition-all duration-500 ease-out rotate-2 scale-100 md:scale-110 hover:rotate-0 hover:scale-[1.02]">
+              {/* ADJUSTE 1: scale-90 no mobile, md:scale-110 no desktop */}
+              <div className="relative bg-slate-900 border border-slate-800 rounded-[1.5rem] md:rounded-[2rem] p-2 md:p-3 shadow-2xl transform transition-all duration-500 ease-out rotate-1 md:rotate-2 scale-90 md:scale-110 hover:rotate-0 hover:scale-[0.92] md:hover:scale-[1.02]">
                 {/* Barra do navegador */}
-                <div className="flex items-center gap-2 px-4 py-3 mb-2">
+                <div className="flex items-center gap-2 px-3 py-2 md:px-4 md:py-3 mb-1 md:mb-2">
                   <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                    <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-red-500/80"></div>
+                    <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-yellow-500/80"></div>
+                    <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-green-500/80"></div>
                   </div>
-                  <div className="text-[10px] md:text-xs text-slate-500 font-medium ml-3 bg-slate-800 px-3 py-1 rounded-md w-full text-center truncate">
+                  {/* Texto da URL um pouco menor no mobile */}
+                  <div className="text-[9px] md:text-xs text-slate-500 font-medium ml-2 md:ml-3 bg-slate-800 px-2 md:px-3 py-1 rounded-md w-full text-center truncate">
                     app.cofin.finance
                   </div>
                 </div>
 
                 {/* ÁREA DO DASHBOARD */}
-                {/* min-h-[300px]: Garante altura para os cards não baterem, sem ser gigante */}
-                <div className="aspect-[16/10] min-h-[300px] rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 overflow-hidden relative group">
+                {/* AJUSTE 2: min-h-[220px] no mobile para não ficar alto demais */}
+                <div className="aspect-[16/10] min-h-[220px] md:min-h-[300px] rounded-lg md:rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 overflow-hidden relative group">
                   {/* Placeholder da Imagem Central */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center text-slate-400">
-                    <TrendingUp className="h-12 w-12 mb-3 text-blue-500/50" />
-                    <span className="text-sm font-medium opacity-50">
+                    <TrendingUp className="h-8 w-8 md:h-12 md:w-12 mb-2 md:mb-3 text-blue-500/50" />
+                    <span className="text-xs md:text-sm font-medium opacity-50">
                       Dashboard
                     </span>
                   </div>
 
                   {/* --- CARD 1 (Rentabilidade) --- */}
-                  {/* Reduzi o padding para p-3 para o card ficar mais compacto */}
-                  <div className="absolute top-5 right-5 z-20 bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/10 shadow-lg">
-                    <div className="text-[10px] text-blue-400 mb-0.5">
+                  {/* AJUSTE 3: Posicionamento mais justo nas bordas (top-3 right-3) no mobile */}
+                  <div className="absolute top-3 right-3 md:top-5 md:right-5 z-20 bg-white/10 backdrop-blur-md p-2 md:p-3 rounded-lg md:rounded-xl border border-white/10 shadow-lg">
+                    <div className="text-[8px] md:text-[10px] text-blue-400 mb-0.5">
                       Rentabilidade Mês
                     </div>
-                    <div className="text-lg font-bold text-white">+ 3.45%</div>
+                    <div className="text-sm md:text-lg font-bold text-white">
+                      + 3.45%
+                    </div>
                   </div>
 
                   {/* --- CARD 2 (Modo Casal) --- */}
-                  {/* top-auto bottom-5: Garante que fique preso ao fundo */}
-                  <div className="absolute bottom-5 left-5 z-20 bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/10 shadow-lg flex items-center gap-3">
-                    <div className="bg-green-500/20 p-1.5 rounded-lg">
-                      <Lock className="h-4 w-4 text-green-400" />
+                  <div className="absolute bottom-3 left-3 md:bottom-5 md:left-5 z-20 bg-white/10 backdrop-blur-md p-2 md:p-3 rounded-lg md:rounded-xl border border-white/10 shadow-lg flex items-center gap-2 md:gap-3">
+                    <div className="bg-green-500/20 p-1 md:p-1.5 rounded-md md:rounded-lg">
+                      <Lock className="h-3 w-3 md:h-4 md:w-4 text-green-400" />
                     </div>
                     <div>
-                      <div className="text-[10px] text-slate-300 mb-0.5">
+                      <div className="text-[8px] md:text-[10px] text-slate-300 mb-0">
                         Modo Casal
                       </div>
-                      <div className="text-sm font-bold text-white">
+                      <div className="text-xs md:text-sm font-bold text-white">
                         Ativado
                       </div>
                     </div>
