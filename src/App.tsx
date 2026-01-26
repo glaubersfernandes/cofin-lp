@@ -18,6 +18,8 @@ export default function LandingPage() {
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  const APP_URL = "https://cofin.vercel.app/login";
+
   const handleJoinWaitlist = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
@@ -46,6 +48,10 @@ export default function LandingPage() {
     }
   };
 
+  const handleLoginClick = () => {
+    window.location.href = APP_URL;
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900 overflow-x-hidden">
       {/* --- HEADER (Glassmorphism) --- */}
@@ -61,7 +67,12 @@ export default function LandingPage() {
             <span className="text-sm text-slate-500 hidden md:block">
               Já tem conta?
             </span>
-            <Button variant="ghost" size="sm" className="font-medium">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="font-medium"
+              onClick={handleLoginClick}
+            >
               Login
             </Button>
           </div>
