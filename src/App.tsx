@@ -353,8 +353,18 @@ export default function LandingPage() {
             <Wallet className="h-5 w-5 text-blue-500" />
             <span>CoFin</span>
           </div>
+
+          <div className="flex gap-6">
+            <a href="/terms" className="hover:text-white transition-colors">
+              Termos de Uso
+            </a>
+            <a href="/privacy" className="hover:text-white transition-colors">
+              Privacidade
+            </a>
+          </div>
+
           <p>
-            © 2025 CoFin Tecnologia. Feito por investidores, para investidores.
+            © 2026 CoFin Tecnologia. Feito por investidores, para investidores.
           </p>
         </div>
       </footer>
