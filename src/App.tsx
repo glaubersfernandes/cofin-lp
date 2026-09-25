@@ -42,7 +42,7 @@ export default function LandingPage() {
       } else {
         alert("Ocorreu um erro ao entrar na lista. Tente novamente.");
       }
-    } catch (error) {
+    } catch {
       alert("Erro de conexão. Verifique sua internet.");
     } finally {
       setIsLoading(false);
