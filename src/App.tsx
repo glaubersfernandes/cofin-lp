@@ -15,6 +15,8 @@ import {
   Crown,
   ChevronDown,
   Smartphone,
+  Play,
+  X,
 } from "lucide-react";
 
 const FAQS = [
@@ -45,6 +47,7 @@ export default function LandingPage() {
     "YEARLY"
   );
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   const APP_DOMAIN =
     import.meta.env.VITE_APP_URL || "https://app.fintogether.com.br";
@@ -117,34 +120,26 @@ export default function LandingPage() {
           <div className="container mx-auto grid lg:grid-cols-12 gap-12 items-center">
             {/* Coluna Esquerda: Copywriting & CTAs */}
             <div className="lg:col-span-7 space-y-7 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs sm:text-sm font-semibold">
-                <Sparkles className="h-4 w-4" />
-                <span>
-                  A plataforma #1 para finanças pessoais e vida a dois
-                </span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs sm:text-sm font-semibold shadow-xs">
+                <Sparkles className="h-4 w-4 text-indigo-600" />
+                <span>Gestão financeira inteligente para casais</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-slate-900">
-                Chega de brigas por planilhas.{" "}
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] text-slate-900">
+                Finanças a dois,{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-                  Organize a vida financeira a dois
-                </span>{" "}
-                em um só lugar.
+                  sem brigas por planilhas.
+                </span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Contas conjuntas e individuais, faturas de cartão de crédito,
-                metas do casal, importação OFX e investimentos na B3/Cripto —{" "}
-                <strong className="text-slate-800">
-                  cada um com seu próprio login
-                </strong>
-                , sincronizado em tempo real no celular ou computador.
+              <p className="text-lg sm:text-xl text-slate-600 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                Divisão justa para as despesas da casa e privacidade para o dinheiro de cada um. Tudo sincronizado no celular em tempo real.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-1">
                 <Button
                   size="lg"
-                  className="w-full sm:w-auto h-14 px-8 bg-indigo-600 hover:bg-indigo-700 text-white text-base font-bold rounded-xl shadow-lg shadow-indigo-600/25"
+                  className="w-full sm:w-auto h-14 px-8 bg-indigo-600 hover:bg-indigo-700 text-white text-base font-bold rounded-xl shadow-lg shadow-indigo-600/25 transition-all"
                   onClick={() => (window.location.href = APP_REGISTER_URL)}
                 >
                   Começar Grátis Agora
@@ -153,142 +148,142 @@ export default function LandingPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="w-full sm:w-auto h-14 px-8 text-base font-semibold rounded-xl border-slate-300 bg-white hover:bg-slate-100"
-                  onClick={() => {
-                    document
-                      .getElementById("pricing")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                  }}
+                  className="w-full sm:w-auto h-14 px-7 text-base font-semibold rounded-xl border-slate-300 bg-white hover:bg-slate-100 text-slate-700 shadow-sm flex items-center justify-center gap-2"
+                  onClick={() => setIsVideoModalOpen(true)}
                 >
-                  Conhecer o Modo Casal
+                  <Play className="h-4 w-4 fill-indigo-600 text-indigo-600" />
+                  Assistir Vídeo (18s)
                 </Button>
               </div>
 
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs sm:text-sm text-slate-500 pt-1">
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-600" /> Plano
-                  Starter Grátis para sempre
+                <span className="flex items-center gap-1.5 font-medium">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+                  Plano Starter Grátis
                 </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-600" /> 1
-                  assinatura Casal = até 5 membros
+                <span className="flex items-center gap-1.5 font-medium">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+                  Não pede senha bancária
                 </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-600" /> Instale
-                  no iPhone ou Android
+                <span className="flex items-center gap-1.5 font-medium">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+                  1 plano = até 5 membros
                 </span>
               </div>
             </div>
 
-            {/* Coluna Direita: Mockup Realista do Produto */}
+            {/* Coluna Direita: Mockup Realista e Focado do Produto */}
             <div className="lg:col-span-5 relative">
               <div className="absolute -inset-4 bg-gradient-to-tr from-blue-500/20 to-indigo-500/20 blur-2xl rounded-3xl" />
 
-              <div className="relative bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-2xl text-white space-y-4">
-                {/* Barra de Topo do App */}
-                <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                  <div className="flex items-center gap-2">
-                    <div className="h-7 w-7 rounded-lg bg-indigo-600 flex items-center justify-center font-bold text-xs">
+              <div className="relative bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-2xl text-white space-y-4">
+                {/* Barra de Topo do Workspace */}
+                <div className="flex items-center justify-between border-b border-slate-800 pb-3.5">
+                  <div className="flex items-center gap-2.5">
+                    <div className="h-8 w-8 rounded-lg bg-indigo-600 flex items-center justify-center font-bold text-xs shadow-inner">
                       FT
                     </div>
                     <div>
-                      <div className="text-xs font-bold flex items-center gap-1.5">
+                      <div className="text-xs sm:text-sm font-bold flex items-center gap-1.5">
                         Família Fernandes
-                        <span className="bg-indigo-500/20 text-indigo-300 text-[9px] px-1.5 py-0.5 rounded font-semibold">
-                          CASAL & FAMÍLIA
+                        <span className="bg-indigo-500/20 text-indigo-300 text-[10px] px-2 py-0.5 rounded font-semibold border border-indigo-500/30">
+                          CASAL
                         </span>
                       </div>
-                      <div className="text-[10px] text-slate-400">
-                        2 membros ativos • Sincronizado agora
+                      <div className="text-[11px] text-slate-400">
+                        2 membros • Sincronizado agora
                       </div>
                     </div>
                   </div>
-                  <div className="bg-slate-800 rounded-lg p-1 flex gap-1 text-[10px] font-semibold">
-                    <span className="bg-indigo-600 text-white px-2 py-0.5 rounded">
+
+                  {/* Seletor Nosso / Meus / Parceiro - O verdadeiro diferencial */}
+                  <div className="bg-slate-800/90 rounded-lg p-1 flex gap-1 text-xs font-semibold border border-slate-700/60">
+                    <span className="bg-indigo-600 text-white px-2.5 py-1 rounded shadow-xs">
                       Nosso
                     </span>
-                    <span className="text-slate-400 px-2 py-0.5">Meus</span>
-                    <span className="text-slate-400 px-2 py-0.5">Parceiro</span>
+                    <span className="text-slate-400 px-2.5 py-1">Meus</span>
+                    <span className="text-slate-400 px-2.5 py-1">Parceira</span>
                   </div>
                 </div>
 
-                {/* KPIs do Casal */}
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="bg-slate-800/80 border border-slate-700/70 rounded-xl p-3">
-                    <div className="text-[10px] text-slate-400">
-                      Patrimônio Consolidado
-                    </div>
-                    <div className="text-lg font-extrabold text-emerald-400 mt-0.5">
-                      R$ 148.920,00
-                    </div>
-                    <div className="text-[10px] text-emerald-400/80 mt-0.5">
-                      +R$ 4.250 investidos este mês
-                    </div>
-                  </div>
-                  <div className="bg-slate-800/80 border border-slate-700/70 rounded-xl p-3">
-                    <div className="text-[10px] text-slate-400">
-                      Fatura Cartão Nubank Ultravioleta
-                    </div>
-                    <div className="text-lg font-extrabold text-white mt-0.5">
-                      R$ 3.840,50
-                    </div>
-                    <div className="text-[10px] text-amber-400 mt-0.5">
-                      Fecha dia 10 • Limite disp. R$ 16.159
-                    </div>
-                  </div>
-                </div>
-
-                {/* Meta Compartilhada */}
-                <div className="bg-gradient-to-r from-indigo-900/60 to-blue-900/40 border border-indigo-500/30 rounded-xl p-3.5 space-y-2">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-bold flex items-center gap-1.5">
+                {/* Meta Compartilhada do Casal */}
+                <div className="bg-gradient-to-r from-indigo-900/50 to-blue-900/30 border border-indigo-500/30 rounded-xl p-4 space-y-2.5">
+                  <div className="flex items-center justify-between text-xs sm:text-sm">
+                    <span className="font-bold flex items-center gap-2">
                       <Target className="h-4 w-4 text-indigo-400" />
                       Meta do Casal: Viagem Europa 2027 ✈️
                     </span>
-                    <span className="font-bold text-indigo-300">76%</span>
+                    <span className="font-bold text-indigo-300 text-xs">76%</span>
                   </div>
-                  <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                  <div className="w-full h-2.5 bg-slate-800/80 rounded-full overflow-hidden">
                     <div className="h-full w-[76%] bg-gradient-to-r from-blue-500 to-indigo-400 rounded-full" />
                   </div>
-                  <div className="flex justify-between text-[10px] text-slate-300">
-                    <span>Acumulado: R$ 22.800,00</span>
-                    <span>Alvo: R$ 30.000,00</span>
+                  <div className="flex justify-between text-[11px] text-slate-300">
+                    <span>Acumulado: <strong>R$ 22.800,00</strong></span>
+                    <span>Alvo: <strong>R$ 30.000,00</strong></span>
                   </div>
                 </div>
 
-                {/* Últimos Lançamentos com Autoria */}
+                {/* Divisão com Autoria: Quem gastou o quê */}
                 <div className="space-y-2">
-                  <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                    Últimos Lançamentos do Workspace
+                  <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider flex items-center justify-between">
+                    <span>Gastos Compartilhados da Casa</span>
+                    <span className="text-[10px] text-indigo-400 font-normal">Tempo Real</span>
                   </div>
-                  <div className="bg-slate-800/60 rounded-lg p-2.5 flex items-center justify-between text-xs">
-                    <div>
-                      <div className="font-semibold">
-                        Supermercado São Luiz
+
+                  <div className="bg-slate-800/70 border border-slate-700/50 rounded-xl p-3 flex items-center justify-between text-xs sm:text-sm">
+                    <div className="flex items-center gap-2.5">
+                      <div className="h-7 w-7 rounded-full bg-indigo-500/20 text-indigo-300 flex items-center justify-center font-bold text-[11px]">
+                        G
                       </div>
-                      <div className="text-[10px] text-slate-400">
-                        Alimentação • Lançado por{" "}
-                        <strong className="text-indigo-300">Glauber</strong>
+                      <div>
+                        <div className="font-semibold text-white">
+                          Supermercado São Luiz
+                        </div>
+                        <div className="text-[11px] text-slate-400">
+                          Alimentação • Lançado por <span className="text-indigo-300 font-medium">Glauber</span>
+                        </div>
                       </div>
                     </div>
-                    <span className="font-bold text-rose-400">
-                      - R$ 642,80
+                    <span className="font-bold text-rose-400 text-sm">
+                      - R$ 420,00
                     </span>
                   </div>
-                  <div className="bg-slate-800/60 rounded-lg p-2.5 flex items-center justify-between text-xs">
-                    <div>
-                      <div className="font-semibold">
-                        Aporte FII HGLG11 & PETR4
+
+                  <div className="bg-slate-800/70 border border-slate-700/50 rounded-xl p-3 flex items-center justify-between text-xs sm:text-sm">
+                    <div className="flex items-center gap-2.5">
+                      <div className="h-7 w-7 rounded-full bg-pink-500/20 text-pink-300 flex items-center justify-center font-bold text-[11px]">
+                        P
                       </div>
-                      <div className="text-[10px] text-slate-400">
-                        Investimentos B3 • Lançado por{" "}
-                        <strong className="text-emerald-300">Parceira</strong>
+                      <div>
+                        <div className="font-semibold text-white">
+                          Jantar a Dois
+                        </div>
+                        <div className="text-[11px] text-slate-400">
+                          Lazer • Lançado por <span className="text-pink-300 font-medium">Parceira</span>
+                        </div>
                       </div>
                     </div>
-                    <span className="font-bold text-emerald-400">
-                      + R$ 2.500,00
+                    <span className="font-bold text-rose-400 text-sm">
+                      - R$ 180,00
                     </span>
                   </div>
+                </div>
+
+                {/* Footer do Card com benefício direto e trigger do vídeo */}
+                <div className="pt-2 flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-800/80">
+                  <button
+                    type="button"
+                    onClick={() => setIsVideoModalOpen(true)}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-300 hover:text-white border border-indigo-500/40 font-semibold text-xs transition-colors cursor-pointer"
+                  >
+                    <Play className="h-3 w-3 fill-current" />
+                    Assistir Demonstração (18s)
+                  </button>
+                  <span className="flex items-center gap-1 text-emerald-400 font-medium">
+                    <CheckCircle2 className="h-3.5 w-3.5" />
+                    Divisão justa & automática
+                  </span>
                 </div>
               </div>
             </div>
@@ -828,6 +823,59 @@ export default function LandingPage() {
           </p>
         </div>
       </footer>
+
+      {/* --- MODAL DE VÍDEO DEMONSTRAÇÃO --- */}
+      {isVideoModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4 animate-in fade-in duration-200">
+          <div className="relative w-full max-w-4xl bg-slate-900 border border-slate-800 rounded-3xl p-4 sm:p-6 shadow-2xl space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div className="flex items-center gap-2.5">
+                <div className="bg-indigo-600 text-white font-extrabold h-7 w-7 rounded-lg flex items-center justify-center text-xs">
+                  FT
+                </div>
+                <div>
+                  <h3 className="text-sm sm:text-base font-bold text-white">
+                    FinTogether em Ação (18s)
+                  </h3>
+                  <p className="text-xs text-slate-400">
+                    Veja como é simples e sem atrito gerenciar finanças a dois
+                  </p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsVideoModalOpen(false)}
+                className="h-8 w-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            <div className="relative aspect-video rounded-2xl overflow-hidden bg-black border border-slate-800 shadow-inner">
+              <video
+                src="/brag.mp4"
+                poster="/brag.jpg"
+                controls
+                autoPlay
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+              <span className="text-xs text-slate-400">
+                Pronto para eliminar as planilhas da sua vida a dois?
+              </span>
+              <Button
+                className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl"
+                onClick={() => (window.location.href = APP_REGISTER_URL)}
+              >
+                Criar Conta Grátis Agora
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
