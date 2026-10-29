@@ -1,5 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" />
-  <path d="M3 5v14a2 2 0 0 0 2 2h16v-5" />
-  <path d="M18 12a2 2 0 0 0 0 4h4v-4Z" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="ftGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#4f46e5" />
+    </linearGradient>
+  </defs>
+  <rect x="24" y="24" width="464" height="464" rx="120" ry="120" fill="url(#ftGrad)" />
+  <circle cx="210" cy="256" r="92" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="28" />
+  <circle cx="302" cy="256" r="92" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="28" />
+  <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="#ffffff" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-weight="800" font-size="210" letter-spacing="-8">FT</text>
 </svg>
